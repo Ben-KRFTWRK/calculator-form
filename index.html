@@ -1,4 +1,4 @@
-<!-- TODO: Adjust required fields based on public/private share state. Make public/private share toggle into input for accessibility? -->
+<!-- TODO: I don't reset the values at any point?'. Converter - less than or equal? Convert shows <10,000?. Figuring out how to style the select input disabled 'placeholder' option different to the selected one. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,165 +10,292 @@
     <title>Document</title>
   </head>
   <body>
-    <form id="form">
-      <!-- TODO THINK ABOUT ACCESSIBLITY FOR THIS -->
-      <div id="form__toggle">
-        <div id="form__toggle__public" class="form__toggle-selected">
-          Public Share
+    <div id="container">
+      <div id="form-toggle">
+        <div>
+          <button
+            id="form-toggle__public"
+            class="form-toggle__item form-toggle-selected"
+            aria-label="public share form"
+          >
+            Public Share
+          </button>
+          <button
+            id="form-toggle__private"
+            class="form-toggle__item"
+            aria-label="private share form"
+          >
+            Private Share
+          </button>
         </div>
-        <div id="form__toggle__private">Private Share</div>
       </div>
 
-      <fieldset id="form__public-fieldset">
-        <legend class="sr-only">Public Share:</legend>
-        <label for="city-population" class="form__public-fieldset"
-          >City Population</label
-        >
-        <span class="form__tooltip">
-          <svg
-            alt="More information"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="form__tooltip__icon"
+      <form id="form">
+        <!-- TODO THINK ABOUT ACCESSIBLITY FOR THIS -->
+
+        <fieldset id="form__public-fieldset">
+          <legend class="sr-only">Public Share:</legend>
+          <label for="city-population">City Population</label>
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+
+            <div class="form__tooltip__text" hidden>
+              What is the approximate population of your city/town?
+            </div>
+          </div>
+          <input
+            type="number"
+            min="10000"
+            placeholder="Type Number..."
+            name="city-population"
+            id="city-population"
+            class="form__public-field"
+            required
+          />
+
+          <label for="location-in-urban-center-public"
+            >Location in Urban Center</label
           >
-            <path
-              d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
-              fill="#CBD6E1"
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+
+            <div class="form__tooltip__text" hidden>
+              Does your metropolitan area have a defined dense urban area(s)
+            </div>
+          </div>
+          <select
+            name="location-in-urban-center"
+            id="location-in-urban-center-public"
+            class="form__public-field"
+            required
+          >
+            <option selected disabled>Select Option...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="bike-lane-friendly">Bike Lane/Trail Friendly</label>
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+
+            <div class="form__tooltip__text" hidden>
+              0 = not friendly at all, 5 = very friendly, lanes and trails
+              accessible in most areas
+            </div>
+          </div>
+          <input
+            type="number"
+            min="0"
+            max="5"
+            placeholder="Type Number..."
+            name="bike-lane-friendly"
+            id="bike-lane-friendly"
+            class="form__public-field"
+            required
+          />
+
+          <label for="estimated-operating-months-public"
+            >Estimated Operating Months</label
+          >
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+
+            <div class="form__tooltip__text" hidden>
+              Note, winter weather typically necessitates suspending services
+            </div>
+          </div>
+          <input
+            name="estimated-operating-months"
+            type="number"
+            placeholder="Type Number..."
+            min="1"
+            max="12"
+            id="estimated-operating-months-public"
+            class="form__public-field"
+            required
+          />
+        </fieldset>
+
+        <fieldset id="form__private-fieldset" hidden>
+          <!-- TODO: DOUBLE CHECK SR CAN'T SEE THIS WHEN HIDDEN -->
+          <legend class="sr-only">Public Share:</legend>
+          <label for="location-in-urban-center-private"
+            >Location in Urban Center</label
+          >
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+
+            <div class="form__tooltip__text" hidden>
+              Is your apartment/hotel located in your city’s urban core?
+            </div>
+          </div>
+          <select
+            name="location-in-urban-center"
+            id="location-in-urban-center-private"
+            class="form__private-field"
+          >
+            <option selected disabled>Select Option...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="location-type">Location Type</label>
+          <select
+            name="location-type"
+            id="location-type"
+            class="form__private-field"
+          >
+            <option selected disabled>Select Option...</option>
+            <option value="apartment">Apartment</option>
+            <option value="hotel">Hotel</option>
+          </select>
+
+          <label
+            for="number-tenants"
+            id="number-tenants-label"
+            data-label-hotel="Avg. Daily Occupied Rooms"
+            >Number of Tenants**</label
+          >
+          <input
+            type="number"
+            min="0"
+            placeholder="Type Number..."
+            name="number-tenants"
+            data-name-hotel="occupied-rooms"
+            id="number-tenants"
+            class="form__private-field"
+          />
+
+          <label for="estimated-operating-months-private"
+            >Estimated Operating Months</label
+          >
+          <div class="form__tooltip">
+            <svg
+              alt="Click here for more information"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="form__tooltip__icon"
+            >
+              <path
+                d="M15.75 8C15.75 3.75 12.25 0.25 8 0.25C3.71875 0.25 0.25 3.75 0.25 8C0.25 12.2812 3.71875 15.75 8 15.75C12.25 15.75 15.75 12.2812 15.75 8ZM8.1875 2.8125C9.96875 2.8125 11.8438 4.1875 11.8438 6C11.8438 8.4375 9.25 8.46875 9.25 9.34375V9.375C9.25 9.59375 9.0625 9.75 8.875 9.75H7.125C6.90625 9.75 6.75 9.59375 6.75 9.375V9.25C6.75 7.96875 7.71875 7.46875 8.4375 7.0625C9.0625 6.71875 9.46875 6.46875 9.46875 6C9.46875 5.375 8.65625 4.96875 8.03125 4.96875C7.1875 4.96875 6.8125 5.375 6.25 6.09375C6.125 6.25 5.875 6.28125 5.71875 6.15625L4.625 5.34375C4.46875 5.21875 4.4375 5 4.5625 4.8125C5.40625 3.53125 6.5 2.8125 8.1875 2.8125ZM8 10.5625C8.78125 10.5625 9.4375 11.2188 9.4375 12C9.4375 12.8125 8.78125 13.4375 8 13.4375C7.1875 13.4375 6.5625 12.8125 6.5625 12C6.5625 11.2188 7.1875 10.5625 8 10.5625Z"
+              />
+            </svg>
+            <div class="form__tooltip__text" hidden>
+              Note, winter weather typically necessitates suspending services
+            </div>
+          </div>
+          <input
+            name="estimated-operating-months"
+            type="number"
+            min="1"
+            max="12"
+            placeholder="Type Number..."
+            id="estimated-operating-months-private"
+            class="form__private-field"
+          />
+        </fieldset>
+
+        <input type="submit" value="Calculate" />
+      </form>
+
+      <!-- TODO Remove these -->
+
+      <div id="result-page" hidden>
+        <div id="result">
+          <span id="result__image">
+            <img
+              src="assets/scooter.png"
+              alt="Scooter illustration"
+              aria-hidden="true"
             />
-          </svg>
-          <span class="form__tooltip__text">Tooltip...</span>
-        </span>
-        <input
-          type="text"
-          name="city-population"
-          id="city-population"
-          class="form__public-field"
-        />
-
-        <label for="location-in-urban-center-public" class="form__public-field"
-          >Location in Urban Center</label
-        >
-        <select
-          name="location-in-urban-center-public"
-          id="location-in-urban-center-public"
-          class="form__public-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label for="bike-lane-friendly" class="form__public-field"
-          >Bike Lane/Trail Friendly</label
-        >
-        <select
-          name="bike-lane-friendly"
-          id="bike-lane-friendly"
-          class="form__public-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-
-        <label for="estimated-operating-months" class="form__public-field"
-          >Estimated Operating Months</label
-        >
-        <select
-          name="estimated-operating-months"
-          id="estimated-operating-months"
-          class="form__public-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-      </fieldset>
-
-      <fieldset id="form__private-fieldset" hidden>
-        <!-- TODO: DOUBLE CHECK SR CAN'T SEE THIS WHEN HIDDEN -->
-        <legend class="sr-only">Public Share:</legend>
-        <label
-          for="location-in-urban-center-private"
-          class="form__private-field"
-          >Location in Urban Center</label
-        >
-        <select
-          name="location-in-urban-center-private"
-          id="location-in-urban-center-private"
-          class="form__private-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label for="location-type" class="form__private-field"
-          >Location Type</label
-        >
-        <select
-          name="location-type"
-          id="location-type"
-          class="form__private-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="apartment">Apartment</option>
-          <option value="hotel">Hotel</option>
-        </select>
-
-        <label for="number-tenants" class="form__private-field"
-          >Number of Tenants**</label
-        >
-        <input
-          type="text"
-          name="number-tenants"
-          id="number-tenants"
-          class="form__private-field"
-        />
-
-        <label for="estimated-operating-months" class="form__private-field"
-          >Estimated Operating Months</label
-        >
-        <select
-          name="estimated-operating-months"
-          id="estimated-operating-months"
-          class="form__private-field"
-        >
-          <option selected disabled>Select Option...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-      </fieldset>
-
-      <input type="submit" value="Calculate" />
-    </form>
+          </span>
+          <div id="result__info-box-scooters" class="result__info-box">
+            <div class="result__info-box__info result__info-box__text">
+              Estimated number of scooters needed:
+            </div>
+            <div class="result__info-box__info result__info-box__figure">
+              <span id="estimated-scooters">N/A</span>
+            </div>
+          </div>
+          <div id="result__info-box-revenue" class="result__info-box">
+            <div class="result__info-box__info result__info-box__text">
+              Estimated annual revenue:
+            </div>
+            <div class="result__info-box__info result__info-box__figure">
+              <div>$<span id="estimated-revenue">N/A</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="result__recalculate">
+          <a href="#" id="result__recalculate__link">Click Here</a> to
+          recalculate your results.
+        </div>
+        <button class="getstarted-button">Get Started</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

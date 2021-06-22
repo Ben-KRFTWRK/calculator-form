@@ -3,35 +3,51 @@
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  color: #f56c67;
+}
+
 [hidden] {
   display: none !important;
 }
 
-#form {
-  width: 27rem;
-  border: 1px solid grey;
+#form,
+#result-page {
+  margin: 0 auto;
 }
 
-#form__toggle {
-  display: inline-block;
+#form {
+  width: 27rem;
+}
+
+#form-toggle {
+  text-align: center;
   margin-bottom: 3.94rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+}
+
+#form-toggle > div {
+  display: inline-block;
+  height: auto;
   background-color: #ffe3e2;
   border-radius: 10px;
-  height: auto;
-  cursor: pointer;
   user-select: none; // stops text highlighting
 }
 
-#form__toggle div {
+.form-toggle__item {
   display: inline-block;
   text-transform: uppercase;
   padding: 0.81rem 1.38rem 0.81rem 1.38rem;
   border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.form__toggle-selected {
+.form-toggle-selected {
   background-color: #f56c67;
   color: #ffffff;
 }
@@ -61,19 +77,50 @@ body:not(:-moz-handler-blocked) fieldset {
   border: 1px solid #cbd6e1;
 }
 
-#form input[type="submit"] {
+/* #form select {
+  color: #cbd6e1;
+} */
+
+#form input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #cbd6e1;
+  opacity: 1; /* Firefox */
+}
+
+#form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #cbd6e1;
+}
+
+#form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #cbd6e1;
+}
+
+#form input[type="submit"],
+.getstarted-button {
   width: auto;
   height: auto;
-  padding: 18px 40px 18px 40px;
+  padding: 1.125rem 2.5rem 1.125rem 2.5rem;
   margin: 0;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 20px;
   text-transform: uppercase;
   background-color: transparent;
   border: 2px solid #000000;
   border-radius: 0;
+}
+
+.getstarted-button {
+  padding: 1.125rem 2rem 1.125rem 2rem;
+  display: block;
+  margin: 1.625rem auto 0 auto;
+}
+
+.getstarted-button:hover {
+  border: 2px solid #000000;
 }
 
 .form__tooltip {
@@ -83,15 +130,105 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .form__tooltip__icon {
   margin-right: 0.56rem;
+  cursor: pointer;
+}
+
+.form__tooltip__icon path {
+  fill: #cbd6e1;
+}
+
+.form__tooltip__icon-selected {
+  fill: #000000 !important;
 }
 
 .form__tooltip__text {
+  display: inline;
   position: absolute;
-  left: 1.56rem;
-  font-size: 0.69rem;
-  color: #485868;
-  padding: 7px 10px 6px 26px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 10.625rem;
+  left: 2.25rem;
   background-color: #ffe3e2;
+  color: #485868;
+  font-size: 0.69rem;
+  line-height: 17px;
+  padding: 7px 10px 6px 16px;
+}
+
+.form__tooltip__text:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-right: 10px solid #ffe3e2;
+  border-bottom: 11px solid transparent;
+}
+
+/* RESULT SCREEN */
+
+#result-page {
+  width: 27rem;
+}
+
+#result {
+  margin-bottom: 0.875rem;
+}
+
+#result__image {
+  position: absolute;
+  margin-top: 0.875rem;
+  margin-left: -150px;
+}
+
+#result__image img {
+  position: relative;
+  width: 50%;
+  height: auto;
+}
+
+.result__info-box {
+  display: flex;
+}
+
+#result__info-box-scooters {
+  height: 9.25rem;
+  background-color: #f5f8fa;
+}
+
+#result__info-box-revenue {
+  height: 8.25rem;
+  background-color: #000000;
+}
+
+.result__info-box__info {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result__info-box__text {
+  padding: 0 40px;
+}
+
+#result__info-box-revenue .result__info-box__text {
+  color: #ffffff;
+}
+
+.result__info-box__figure {
+  color: #f56c67;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 44px;
+}
+
+#result__recalculate {
+  text-align: center;
 }
 
 /* screenreader only class */
